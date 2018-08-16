@@ -15,6 +15,30 @@ class Adminmodel extends CI_Model {
         }
     }
 
+
+    function cek_nama($nama) {
+      $this->db->where('username',$nama);
+	    return $this->db->get('admin')->num_rows();
+    }
+
+    function cek_email($email) {
+      $this->db->where('email',$email);
+      return $this->db->get('admin')->num_rows();
+    }
+
+    function register($username, $email, $nama, $pass) {
+        $data = array(
+            'id_admin' => '',
+            'username' => $username,
+            'email' => $email,
+            'nama' => $nama,
+            'password' => md5($pass),
+            'last_login'=> date("Y-m-d H:i:s"),
+            'hak_akses' => "member"
+        );
+        $this->db->insert('admin', $data);
+    }
+
     function get_member_by_uname($uname) {
         $this->db->where('username', $uname);
         return $this->db->get('admin')->row_array();

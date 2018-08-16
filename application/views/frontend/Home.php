@@ -145,27 +145,33 @@
     <!--Banner area ends-->
 
     <div class="modal fade" id="daftar">
-       <div class="modal-dialog modal-dialog-centered modal-lg">
+       <div class="modal-dialog modal-dialog-centered">
          <div class="modal-content">
 
            <!-- Modal Header -->
            <div class="modal-header">
              <h4 class="modal-title">Form Pendaftaran Anggota</h4>
-             <button type="button" class="close" data-dismiss="modal">&times;</button>
+             <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
            </div>
 
            <!-- Modal body -->
            <div class="modal-body">
-               <form method="POST" action="insertdata.php" onsubmit="return checkall();">
-               <input type="text" name="username" id="UserName" onkeyup="checkname();">
+               <form method="POST" action="frontend/data/register" onsubmit="return checkall();">
+               <label for="UserName">Username</label>
+               <input class="form-control" type="text" name="username" id="UserName" onkeyup="checkname();" placeholder="username" required>
                <span id="name_status"></span>
                <br>
-               <input type="text" name="useremail" id="UserEmail" onkeyup="checkemail();">
+               <label for="UserEmail">Alamat Email</label>
+               <input class="form-control" type="email" name="useremail" id="UserEmail" onkeyup="checkemail();" placeholder="email" required>
                <span id="email_status"></span>
                <br>
-               <input type="password" name="userpass" id="UserPassword">
+               <label for="UserNama">Nama Lengkap</label>
+               <input class="form-control" type="text" name="usernama" id="UserNama" placeholder="nama lengkap" required>
                <br>
-               <input type="submit" name="submit_form" value="Submit">
+               <label for="UserPassword">Password</label>
+               <input class="form-control" type="password" name="userpass" id="UserPassword" required>
+               <br>
+               <button class='btn btn-send' type="submit" style="width:100%" value='Submit'>Daftar</button>
               </form>
            </div>
 
